@@ -1,0 +1,228 @@
+:root {
+    /* colours */
+
+    --primary-paleblue: hsl(225, 100%, 94%);
+    --primary-brightblue: hsl(245, 75%, 52%);
+    --primary-brightblue-lighter: hsl(245, 75%, 67%);
+    --primary-brightblue-alpha: hsla(245, 75%, 52%, 0.3);
+    
+    --neutral-verypaleblue: hsl(225, 100%, 98%);
+    --neutral-desaturatedblue: hsl(224, 23%, 55%);
+    --neutral-desaturatedblue-alpha: hsla(224, 23%, 55%, 0.5);
+    --neutral-darkblue: hsl(223, 47%, 23%);
+
+    --neutral-white: hsl(0, 0%, 100%);
+
+    --text: var(--neutral-desaturatedblue);
+    --text-dark: var(--neutral-darkblue);
+    --bg: var(--primary-paleblue);
+    --bg-alt: var(--neutral-verypaleblue);
+
+    /* sizes */
+    --panel-width-mobile: 325px;
+    --panel-width-desktop: 425px;
+}
+
+body {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 16px;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+h1 {
+    font-size: 0.75rem;
+    color: var(--text);
+    text-transform: uppercase;
+    padding: 0.5rem;
+    border-bottom: 2px solid var(--text);
+    margin: 1rem 0 0 0;
+}
+
+.container {
+    display: grid;
+    place-content: center;
+    padding-top: 32px;
+    /* dunno if the design spec bg is fixed or not, think it's better fixed */
+    background: url(../images/pattern-background-mobile.svg) no-repeat fixed;
+}
+
+/* keep this media min-width 375, even though all the others */
+/* are at 450, the mobile background svg isn't big enough */
+/* to cover any more than 375 */
+@media (min-width: 375px) {
+    .container {
+        /* dunno if the design spec bg is fixed or not, think it's better fixed */
+        background: url(../images/pattern-background-desktop.svg) no-repeat fixed;
+    }
+}
+
+
+.summary {
+    margin-bottom: 32px;
+    border-radius: 18px;
+    width: var(--panel-width-mobile);
+    background-color: var(--neutral-white);
+    box-shadow: 0px 32px 48px -16px var(--neutral-desaturatedblue-alpha);
+    overflow: hidden;
+}
+
+@media (min-width: 450px) {
+    .summary {
+        width: var(--panel-width-desktop);
+    }
+}
+
+.summary-hero {
+
+}
+
+.summary-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 24px;
+    padding: 24px;
+}
+
+@media (min-width: 450px) {
+    .summary-content {
+        padding: 32px 48px;
+    }
+}
+
+.summary-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.summary-heading {
+    /* text-align: center; */
+    color: var(--text-dark);
+    font-size: 1.33rem;
+    font-weight: 900;
+    /* line-height: 1.3; */
+    margin-top: 8px;
+    /* border: 1px solid pink; */
+}
+
+@media (min-width: 450px) {
+    .summary-heading {
+        font-size: 1.66rem;
+    }
+}
+
+.summary-desc {
+    width: 95%;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.6;
+    /* padding: 0px 12px; */
+    /* margin-bottom: 20px; */
+    /* border: 1px solid magenta; */
+}
+
+@media (min-width: 450px) {
+    .summary-desc {
+        font-size: 1rem;
+    }
+}
+
+.summary-order-details {
+    display: flex;
+    /* flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: max-content; */
+    width: 100%;
+    min-height: 80px;
+    padding: 0 18px;
+    justify-content: space-between; 
+    align-items: center;
+    font-size: 0.8rem;
+    background-color: var(--bg-alt);
+    border-radius: 15px;
+}
+
+@media (min-width: 450px) {
+    .summary-order-details {
+        font-size: 0.9rem;
+    }
+}
+
+.summary-order-details-change {
+    color: var(--primary-brightblue);
+    font-weight: 700;
+    /* text-decoration: none; */
+    text-decoration: underline;
+}
+
+.summary-order-details-change:hover {
+    color: var(--primary-brightblue-lighter);
+    text-decoration: none;
+}
+
+.summary-order-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60px;
+    padding-left: 60px;
+    background: url(../images/icon-music.svg) no-repeat left center;
+}
+
+.summary-order-product-desc {
+    color: var(--text-dark);
+    font-weight: 900;
+}
+
+.summary-order-product-price {
+    
+}
+
+.summary-btn-payment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 12px;
+    width: 100%;
+    min-height: 50px;
+    background-color: var(--primary-brightblue);
+    color: var(--neutral-white);
+    font-size: 0.95rem;
+    font-weight: 700;
+    box-shadow: 0 12px 24px 0px var(--primary-brightblue-alpha);
+    cursor: pointer;
+}
+
+.summary-btn-payment:hover {
+    background-color: var(--primary-brightblue-lighter);
+}
+
+.summary-cancel {
+    color: var(--text);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.summary-cancel:hover {
+    color: var(--text-dark);
+    /* text-decoration: none; */
+}
+
+
+
+/* frontend mentor attribution style */
+
+.attribution { 
+    font-size: 11px; text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
