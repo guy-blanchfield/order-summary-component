@@ -19,7 +19,7 @@
     --bg-alt: var(--neutral-verypaleblue);
 
     /* sizes */
-    --panel-width-mobile: 325px;
+    --panel-width-mobile: min(325px, 88vw);
     --panel-width-desktop: 425px;
 }
 
@@ -59,7 +59,7 @@ h1 {
 
 
 .summary {
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
     border-radius: 18px;
     width: var(--panel-width-mobile);
     background-color: var(--neutral-white);
@@ -73,22 +73,23 @@ h1 {
     }
 }
 
-.summary-hero {
+/* .summary-hero {
 
-}
+} */
 
 .summary-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     gap: 24px;
-    padding: 24px;
+    padding: 32px 24px;
+    /* border: 1px solid #f00; */
 }
 
 @media (min-width: 450px) {
     .summary-content {
-        padding: 32px 48px;
+        gap: 32px;
+        padding: 48px 48px;
     }
 }
 
@@ -97,16 +98,13 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    /* border: 1px solid #00f; */
 }
 
 .summary-heading {
-    /* text-align: center; */
     color: var(--text-dark);
     font-size: 1.33rem;
     font-weight: 900;
-    /* line-height: 1.3; */
-    margin-top: 8px;
-    /* border: 1px solid pink; */
 }
 
 @media (min-width: 450px) {
@@ -116,14 +114,11 @@ h1 {
 }
 
 .summary-desc {
-    width: 95%;
     text-align: center;
     font-size: 0.95rem;
     font-weight: 300;
     line-height: 1.6;
-    /* padding: 0px 12px; */
-    /* margin-bottom: 20px; */
-    /* border: 1px solid magenta; */
+    padding: 0px 16px;
 }
 
 @media (min-width: 450px) {
@@ -134,11 +129,9 @@ h1 {
 
 .summary-order-details {
     display: flex;
-    /* flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: max-content; */
-    width: 100%;
-    min-height: 80px;
+    /* wrap otherwise the change link overflows at small vw */
+    flex-wrap: wrap;
+    align-self: stretch;
     padding: 0 18px;
     justify-content: space-between; 
     align-items: center;
@@ -150,13 +143,13 @@ h1 {
 @media (min-width: 450px) {
     .summary-order-details {
         font-size: 0.9rem;
+        min-height: 96px;
     }
 }
 
 .summary-order-details-change {
     color: var(--primary-brightblue);
     font-weight: 700;
-    /* text-decoration: none; */
     text-decoration: underline;
 }
 
@@ -169,8 +162,8 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 60px;
-    padding-left: 60px;
+    min-height: 80px;
+    padding-left: 64px;
     background: url(../images/icon-music.svg) no-repeat left center;
 }
 
@@ -179,18 +172,18 @@ h1 {
     font-weight: 900;
 }
 
-.summary-order-product-price {
+/* .summary-order-product-price {
     
-}
+} */
 
 .summary-btn-payment {
     display: flex;
     justify-content: center;
     align-items: center;
+    align-self: stretch;
     border: 0;
     border-radius: 12px;
-    width: 100%;
-    min-height: 50px;
+    min-height: 48px;
     background-color: var(--primary-brightblue);
     color: var(--neutral-white);
     font-size: 0.95rem;
@@ -212,7 +205,6 @@ h1 {
 
 .summary-cancel:hover {
     color: var(--text-dark);
-    /* text-decoration: none; */
 }
 
 
